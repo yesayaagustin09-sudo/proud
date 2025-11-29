@@ -1,0 +1,171 @@
+/* style.css - KODE CSS FINAL DAN TERINTEGRASI */
+
+/* --- GENERAL & BACKGROUND --- */
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+    
+    /* Background Image */
+    background-image: url('smgt.jpg'); 
+    background-size: cover; 
+    background-position: center;
+    background-attachment: fixed;
+    background-color: #f4f7f6;
+}
+
+/* --- CONTAINER (KOTAK KONTEN PUTIH) --- */
+.container {
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Bayangan sedikit lebih kuat */
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    
+    /* Transparansi dan Blur */
+    background-color: rgba(255, 255, 255, 0.4); /* Putih 40% padat */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.container:hover {
+    transform: translateY(-5px);
+}
+
+/* --- JUDUL UMUM (halaman index.html) --- */
+h1 {
+    color: #007bffc8; /* Biru cerah */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    animation: fadeIn 1s ease-out;
+}
+
+h2 {
+    color: #000000; /* Hijau sukses */
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 30px;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* --- KOTAK KUTIPAN (#quote-display) --- */
+#quote-display {
+    font-size: 1.2em;
+    font-weight: 400;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-left: 5px solid #ffc107; 
+    background-color: rgba(255, 251, 230, 0.85); /* Kuning muda 85% padat */
+    border-radius: 5px;
+    min-height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* --- TOMBOL (button) --- */
+button {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #ffcd39;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* --- ANIMASI UMUM --- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- STYLE KHUSUS COVER.HTML --- */
+
+.cover-content {
+    padding: 50px;
+    text-align: center;
+}
+
+.cover-content h1 {
+    color: rgb(0, 0, 0); /* Hijau sukses (menggantikan warna h1 default) */
+    font-size: 3em; 
+    margin-bottom: 20px;
+}
+
+.cover-content p {
+    font-size: 1.2em;
+    color: rgb(0, 0, 0, 0.8);
+    margin-bottom: 40px;
+}
+
+/* Gaya Tombol Start (berupa <a>) */
+.cover-content .btn-start {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 35px;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-decoration: none; 
+    border-radius: 50px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.cover-content .btn-start:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* --- ANIMASI BUNGA & HATI (DI BELAKANG) --- */
+
+.animated-element {
+    position: fixed; 
+    pointer-events: none; 
+    z-index: -1; /* DI BELAKANG konten utama */
+    opacity: 0; 
+    animation: fallAndFade 5s forwards; 
+    font-size: 2em;
+    text-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.animated-element.flower {
+    color: #ff69b4; 
+    font-size: 2.5em; 
+}
+
+.animated-element.heart {
+    color: #ff4d4d; 
+    font-size: 2em;
+}
+
+@keyframes fallAndFade {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(var(--end-x)) rotate(var(--end-rotate));
+        opacity: 0;
+    }
+}
